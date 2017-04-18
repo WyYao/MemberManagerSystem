@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.member.mapper.EmployeeMapper">
+
+	<!-- User使用的是在mybatis中定义的别名 -->
+	<!-- UserPO使用的也是别名 -->
+	<select id="listAllm" resultType="Employee">
+		select * from employee
+	</select>
+	
+	<insert id="addEmployeem" parameterType="Employee">
+		insert into 
+		employee(emp_id,emp_pw,emp_name,emp_sex,emp_tell,emp_add)
+		values(#{emp_id},#{emp_pw},#{emp_name},#{emp_sex},#{emp_tell},#{emp_add})
+	</insert>
+
+	<select id="listByNamem" parameterType="EmployeePO" resultType="Employee">
+		select * from employee
+		<where>
+			<if test="emp_name!=null"> emp_name like concat('%',#{emp_name},'%')</if>
+		</where>
+		
+	</select>
+</mapper>  
