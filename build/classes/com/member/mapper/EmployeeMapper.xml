@@ -19,8 +19,9 @@
 	<select id="listByNamem" parameterType="EmployeePO" resultType="Employee">
 		select * from employee
 		<where>
-			<if test="emp_name!=null"> emp_name like concat('%',#{emp_name},'%')</if>
+			<if test="emp_name!=null"> and emp_name like concat('%',#{emp_name},'%')</if>
 		</where>
 		
 	</select>
+	
 </mapper>  

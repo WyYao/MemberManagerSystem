@@ -216,15 +216,13 @@
 			var param = {
 				emp_name : $("#employeeEach").val()
 			};
-			alert("emp_name"+param.emp_name);
 			$.ajax({
 				type : "post",
-				url : "/MemberManagerSystem/listByName.shtml",
+				url : "/MemberManagerSystem/employee/listByName.shtml",
 				data : param,
 				dataType : "json",
 				success : function(result) {
-					alert("OK");
-					if (result) {
+					if (result != null) {
 						$("#tbody").html("");
 						var resultHtml = "";
 						$.each(result,function(index,element) {
@@ -244,7 +242,7 @@
 					}
 				},
 				error : function(result){
-					alert("查找出现错误");
+					alert("查找出现错误"+result);
 				}
 			});
 		});

@@ -34,9 +34,10 @@ public class EmployeeController {
 	
 	@RequestMapping("/listByName")
 	public ResponseEntity<List<Employee>> listByName(EmployeePO employeePO){
+		System.out.println("employeePO: " + employeePO.getEmp_name());
 		List<Employee> employees = employeeService.listByName(employeePO);
 		ResponseEntity<List<Employee>> result = new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
-		if(result!=null){
+		if(result != null){
 			return result;
 		}else{
 			return null;
