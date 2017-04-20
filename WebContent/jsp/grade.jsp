@@ -109,16 +109,15 @@
 								data-toggle="dropdown">
 								操作 <span class="caret"></span>
 							</button>	
-								<ul class="dropdown-menu" role="menu">		
-									<li><a href="#">修改</a></li>
-									<li><a href="#">删除</a></li>
+								<ul class="dropdown-menu" role="menu">
+									<li><a>修改</a></li>
+									<li><a onclick="delete(this)" style="cursor:pointer" >删除</a></li>
 								</ul>
 							</div>
 							</td> `;	 	
-					
-					
-					
 						resultHtml += "</tr>";
+						/* <a onclick=\"clickDetail(this)\" style=\"cursor: pointer;\"
+						data-target=\"#add_accountModal\" data-toggle=\"modal\" class=\"operate-account-edit\" */
 					});
 					$("table").children("tbody").html(resultHtml);
 				},

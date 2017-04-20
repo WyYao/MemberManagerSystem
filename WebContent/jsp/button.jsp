@@ -13,6 +13,7 @@
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<td>
 	<div class="btn-group">
 		<button type="button" class="btn btn-primary dropdown-toggle"
 			data-toggle="dropdown">
@@ -23,12 +24,13 @@
 			<li><a href="#">删除</a></li>
 		</ul>
 	</div>
+	</td>
 
 	<td>
 		<div class="btn-group">
 			<button id=element.grade_id type="button"
 				class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-				操作 <span class="caret"></span>
+				操作 <span class="caret"></span></button>
 				<ul class="dropdown-menu" role="menu">
 					<li><a href="#">修改</a></li>
 					<li><a href="#">删除</a></li>

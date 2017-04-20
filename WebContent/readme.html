@@ -5,17 +5,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-	(1)出现一次500错误
+	(1)出现一次500错误 
 		是因为在service中的mapper的方法写错了，在那个映射里找不到那个方法，映射不进去。
-	(2)出现了    严重: Exception sending context initialized event to listener instance of class org.springframework.web.context.ContextLoaderListener
-		  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'employeeServiceImpl': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.member.mapper.EmployeeMapper com.member.service.impl.EmployeeServiceImpl.employeeMapper; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.member.mapper.EmployeeMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	
+	(2)出现了 严重:	Exception sending context initialized event to listener instance of
+				class org.springframework.web.context.ContextLoaderListener
+				org.springframework.beans.factory.BeanCreationException: Error creating
+				bean with name 'employeeServiceImpl': Injection of autowired
+				dependencies failed; nested exception is
+				org.springframework.beans.factory.BeanCreationException: Could not
+				autowire field: private com.member.mapper.EmployeeMapper
+				com.member.service.impl.EmployeeServiceImpl.employeeMapper; nested
+				exception is
+				org.springframework.beans.factory.NoSuchBeanDefinitionException: No
+				qualifying bean of type [com.member.mapper.EmployeeMapper] found for
+				dependency: expected at least 1 bean which qualifies as autowire
+				candidate for this dependency. Dependency annotations:
+				{@org.springframework.beans.factory.annotation.Autowired(required=true)}
 		两次，第一次是mybatis-config中别名的路径写错了
 		第二次是mybatis-config中别名中，写了gradePO，但是我的项目中并没有这个PO，和上一个报了一样的错误。
-	(3)查询结果出不来，也没有报错
+	
+	(3)查询结果出不来，也没有报错 
 		1.是因为Ajax中URL路径写错了，有错的路径找不到方法，就没有结果。
-		2.因为我的Ajax的param中的参数和数据库中的字段不一样，而在mapper.xml中并没有表明
+		2.因为我的Ajax的param中的参数和数据库中的字段不一样，而在mapper.xml中并没有表明 (4) resultHtml += "
 	
-	(4)
-	
+	(4)<td><div class=\"btn-group\">
+			"+ "
+			<button id="+element.grade_id+" type=\ "button\"class=\ "btn
+				btn-primary dropdown-toggle\""+
+							"data-toggle=\"dropdown\">
+				操作 <span class=\"caret\"></span>
+			</button>
+			"+ "
+			<ul class=\ "dropdown-menu\" role=\ "menu\" aria-labelledby=\"dLabel\">
+				"+ "
+				<li><a href=\"#\">修改</a></li>"+ "
+				<li><a href=\"#\">删除</a></li>"+ "
+			</ul>
+			"+ "
+		</div></td>";
+		这个搞了好久，发现是因为button标签写错了位置，应该写在span标签之后。
+		
+	(5)
+
 </body>
 </html>
