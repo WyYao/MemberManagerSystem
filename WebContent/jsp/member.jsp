@@ -16,7 +16,7 @@
 	<nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand">员工资料</a>
+			<a class="navbar-brand">会员资料</a>
 		</div>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="employee.jsp">员工信息</a></li>
@@ -35,7 +35,7 @@
 					<button class="close" data-dismiss="modal">
 						<span>&times;</span>
 					</button>
-					<h4 class="modal-title">新增员工信息</h4>
+					<h4 class="modal-title">新增会员信息</h4>
 				</div>
 				<div class="modal-body">
 				

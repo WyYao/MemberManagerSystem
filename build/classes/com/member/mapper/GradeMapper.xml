@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.member.mapper.GradeMapper">
+
+	<select id="listAllm" resultType="Grade">
+		select * from grade
+	</select>
+	
+	<insert id="addGradem" parameterType="Grade">
+		insert into 
+		grade(grade_id,grade_name,discount)
+		values(#{grade_id},#{grade_name},#{discount})
+	</insert>
+	
+</mapper>  

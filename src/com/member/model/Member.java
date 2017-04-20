@@ -2,12 +2,13 @@ package com.member.model;
 
 import java.util.Date;
 
-public class Employee {
+public class Member {
 
 	private int emp_id;
 	private String emp_pw;
 	private String emp_name;
 	private String emp_sex;
+	private Date emp_birthday;
 	private String emp_tell;
 	private String emp_add;
 
@@ -43,6 +44,14 @@ public class Employee {
 		this.emp_sex = emp_sex;
 	}
 
+	public Date getEmp_birthday() {
+		return emp_birthday;
+	}
+
+	public void setEmp_birthday(Date emp_birthday) {
+		this.emp_birthday = emp_birthday;
+	}
+
 	public String getEmp_tell() {
 		return emp_tell;
 	}
@@ -61,8 +70,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [emp_id=" + emp_id + ", emp_pw=" + emp_pw + ", emp_name=" + emp_name + ", emp_sex=" + emp_sex
-				+ ", emp_tell=" + emp_tell + ", emp_add=" + emp_add + "]";
+		return "EmployeeModel [emp_id=" + emp_id + ", emp_pw=" + emp_pw + ", emp_name=" + emp_name + ", emp_sex="
+				+ emp_sex + ", emp_birthday=" + emp_birthday + ", emp_tell=" + emp_tell + ", emp_add=" + emp_add + "]";
 	}
 
 }
