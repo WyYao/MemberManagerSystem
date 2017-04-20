@@ -7,13 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>员工信息</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
-<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- 导航 -->
-<!-- 	<nav class="navbar navbar-default">
+	<!-- 	<nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand">员工资料</a>
@@ -38,7 +40,7 @@
 					<h4 class="modal-title">新增等级信息</h4>
 				</div>
 				<div class="modal-body">
-				
+
 					<div class="input-group-lg">
 						<span class="input-group-addon"> 等级编号 </span> <input type="text"
 							id="grade_id" class="form-control" placeholder="请输入等级编号">
@@ -60,24 +62,24 @@
 		</div>
 	</div>
 
-		<!-- 新增按钮 -->
-		<button class="btn btn-primary" data-toggle="modal"
-			data-target="#gradeModal" data-backdrop="static">点击新增</button>
-		<!-- 个人信息列表 -->
-		<table class="table table-striped" role="tablist">
-			<thead>
-				<tr>
-					<th>等级编号</th>
-					<th>等级名称</th>
-					<th>会员折扣率</th>
-					<th>操作</th> 
-				</tr>
-			</thead>
-			<tbody id="tbody">
-				<!-- 动态显示信息 -->
-				
-			</tbody>
-		</table>
+	<!-- 新增按钮 -->
+	<button class="btn btn-primary" data-toggle="modal"
+		data-target="#gradeModal" data-backdrop="static">点击新增</button>
+	<!-- 个人信息列表 -->
+	<table class="table table-striped" role="tablist">
+		<thead>
+			<tr>
+				<th>等级编号</th>
+				<th>等级名称</th>
+				<th>会员折扣率</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+			<!-- 动态显示信息 -->
+
+		</tbody>
+	</table>
 	</div>
 	<script type="text/javascript">
 		//查询全部员工信息，并且动态生成表格
@@ -93,7 +95,29 @@
 						resultHtml += "<td>"+ element.grade_name + "</td>";
 						resultHtml += "<td>"+ element.discount+ "</td>";
 						/* resultHtml += "<td><button id="+element.grade_id+" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#reservation\" data-backdrop=\"static\">操作</button></td>"; */  
-						resultHtml += "<td><button id="+element.grade_id+"  class=\"btn btn-primary\">操作</button></td>";
+						/* resultHtml += "<td><div class=\"btn-group\">"+
+							"<button id="+element.grade_id+" type=\"button\"class=\"btn btn-primary dropdown-toggle\""+
+							"data-toggle=\"dropdown\">操作   <span class=\"caret\"></span></button>"+
+								"<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">"+
+									"<li><a href=\"#\">修改</a></li>"+
+									"<li><a href=\"#\">删除</a></li>"+
+								"</ul>"+
+							"</div></td>"; */ 
+						resultHtml += ` <td>
+							<div class="btn-group">
+							<button id=`+element.grade_id+` type="button" class="btn btn-primary dropdown-toggle" 
+								data-toggle="dropdown">
+								操作 <span class="caret"></span>
+							</button>	
+								<ul class="dropdown-menu" role="menu">		
+									<li><a href="#">修改</a></li>
+									<li><a href="#">删除</a></li>
+								</ul>
+							</div>
+							</td> `;	 	
+					
+					
+					
 						resultHtml += "</tr>";
 					});
 					$("table").children("tbody").html(resultHtml);
