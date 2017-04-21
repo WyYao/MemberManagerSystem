@@ -7,11 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>员工信息</title>
 <link rel="stylesheet"
-	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script
-	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- 导航 -->
@@ -28,7 +26,7 @@
 	</div>
 	</nav> -->
 
-	<!-- 新增员工信息模态框 -->
+	<!-- 新增等级信息模态框 -->
 	<div class="modal" id="gradeModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -62,6 +60,27 @@
 		</div>
 	</div>
 
+	<!-- 删除等级模态框  -->
+	<div class="modal" id="deleteGradeModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 可关闭 -->
+					<button class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+					<h4 class="modal-title">删除等级信息</h4>
+				</div>
+				<div class="modal-body">
+					确定删除此条等级，删除后无法恢复
+					<div class="modal-footer">
+						<button class="btn btn-defaule" data-dismiss="modal">取消</button>
+						<button class="btn btn-primary" id="deleteGrade">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- 新增按钮 -->
 	<button class="btn btn-primary" data-toggle="modal"
 		data-target="#gradeModal" data-backdrop="static">点击新增</button>
@@ -105,13 +124,14 @@
 							"</div></td>"; */ 
 						resultHtml += ` <td>
 							<div class="btn-group">
-							<button id=`+element.grade_id+` type="button" class="btn btn-primary dropdown-toggle" 
+							<button type="button" class="btn btn-primary dropdown-toggle" 
 								data-toggle="dropdown">
 								操作 <span class="caret"></span>
 							</button>	
 								<ul class="dropdown-menu" role="menu">
-									<li><a>修改</a></li>
-									<li><a onclick="delete(this)" style="cursor:pointer" >删除</a></li>
+									<input type="text" id="delete" class="hidden" value=`+element.grade_id+`>
+									<li><a id="del">修改</a></li>
+									<li><a data-id=`+element.grade_id+` onclick="del(this)" style="cursor:pointer" data-target="#deleteGradeModal" data-toggle="modal" class="operate-account-edit">删除</a></li>
 								</ul>
 							</div>
 							</td> `;	 	
@@ -156,7 +176,12 @@
 				return false;
 			}
 		} 
-		
+		$("#deleteGrade").click(function(){
+			var param = {
+					
+			}
+		})
+	    
 		//获取模态框中的信息，添加到数据库
 		$("#addGrade").click(function() {
 			checkNull(); 
@@ -168,7 +193,6 @@
 					grade_name : $("#grade_name").val(),
 					discount : $("#discount").val()
 				};
-				
 				$.ajax({
 					type : "post",
 					url : "/MemberManagerSystem/grade/addGrade.shtml",
@@ -181,13 +205,39 @@
 						clear();
 					},
 					error:function(data){
-						alert(data);
 						alert("新增失败，请重新操作");
+						$("#gradeModal").modal("hide");
 					}
 				});
 			 }
 		});
-	
+
+		//删除等级
+		function del(ie){
+			var ie = $(ie).attr('data-id');
+			$("#deleteGrade").click(function(){
+				var param = {
+					grade_id : ie
+				};
+				alert(ie);
+				$.ajax({
+					type : "post",
+					url : "/MemberManagerSystem/grade/deleteGrade.shtml",
+					data : param,
+					dataType : "json",
+					success : function(data){
+						alert("删除成功");
+						$("#deleteGradeModal").modal("hide");
+						listGrades();
+					},
+					error : function(data){
+						alert("删除失败，请稍后重新操作");
+						$("#deleteGradeModal").modal("hide");
+					}
+				})
+				
+			});
+		}
 	</script>
 
 </body>

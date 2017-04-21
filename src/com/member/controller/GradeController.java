@@ -38,4 +38,11 @@ public class GradeController {
 		gradeService.addGrade(grade);
 		return "{\"grade\":\"ok\"}";
 	}
+	
+	@RequestMapping("/deleteGrade")
+	public @ResponseBody String deleteGrade(Grade grade){
+		System.out.println("gradeId:"+grade.getGrade_id());
+		gradeService.deleteGrade(grade);
+		return "{\"grade\":\"ok\"}" ;
+	}
 }

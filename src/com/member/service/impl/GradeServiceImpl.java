@@ -34,5 +34,11 @@ public class GradeServiceImpl implements GradeService {
 		
 	}
 
+	@Override
+	public void deleteGrade(Grade grade) {
+		gradeMapper.deleteGradem(grade);
+		
+	}
+
 	
 }

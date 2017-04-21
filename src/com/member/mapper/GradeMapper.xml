@@ -14,4 +14,7 @@
 		values(#{grade_id},#{grade_name},#{discount})
 	</insert>
 	
+	<delete id="deleteGradem" parameterType="Grade">
+		delete from grade where grade_id = #{grade_id}
+	</delete>
 </mapper>  

@@ -7,4 +7,5 @@ import com.member.model.Grade;
 public interface GradeService {
 	List<Grade> ListAll();
 	void addGrade(Grade grade);
+	void deleteGrade(Grade grade);
 }
