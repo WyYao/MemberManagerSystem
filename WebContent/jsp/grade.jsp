@@ -99,7 +99,7 @@
 
 		</tbody>
 	</table>
-	</div>
+	
 	<script type="text/javascript">
 		//查询全部员工信息，并且动态生成表格
 	 	function listGrades() {
@@ -176,11 +176,6 @@
 				return false;
 			}
 		} 
-		$("#deleteGrade").click(function(){
-			var param = {
-					
-			}
-		})
 	    
 		//获取模态框中的信息，添加到数据库
 		$("#addGrade").click(function() {
@@ -227,6 +222,7 @@
 					dataType : "json",
 					success : function(data){
 						alert("删除成功");
+						ie = "";
 						$("#deleteGradeModal").modal("hide");
 						listGrades();
 					},

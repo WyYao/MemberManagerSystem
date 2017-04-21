@@ -43,6 +43,6 @@ public class GradeController {
 	public @ResponseBody String deleteGrade(Grade grade){
 		System.out.println("gradeId:"+grade.getGrade_id());
 		gradeService.deleteGrade(grade);
-		return "{\"grade\":\"ok\"}" ;
+		return "{\"grade\":\"ok\"}";
 	}
 }
