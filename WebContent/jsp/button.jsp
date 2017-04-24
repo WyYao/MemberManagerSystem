@@ -13,7 +13,7 @@
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<td>
+<!-- <td>
 	<div class="btn-group">
 		<button type="button" class="btn btn-primary dropdown-toggle"
 			data-toggle="dropdown">
@@ -36,6 +36,28 @@
 					<li><a href="#">删除</a></li>
 				</ul>
 		</div>
-	</td>
+	</td> -->
+	
+	
+	<button class="btn btn-primary" data-toggle="modal"
+		data-target="#memberModal" data-backdrop="static">点击新增</button>
+	<div class="col-lg-4">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="请输入姓名进行查询"
+				id="employeeEach" name="emp_name"> <span
+				class="input-group-btn">
+				<button class="btn btn-default" type="button" id="employeeEachKey">查询</button>
+			</span>
+		</div>
+	</div>
+	<div class="col-lg-3">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="请输入姓名进行查询"
+				id="employeeEach" name="emp_name"> <span
+				class="input-group-btn">
+				<button class="btn btn-default" type="button" id="employeeEachKey">查询</button>
+			</span>
+		</div>
+	</div>
 </body>
 </html>

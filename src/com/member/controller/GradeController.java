@@ -45,4 +45,17 @@ public class GradeController {
 		gradeService.deleteGrade(grade);
 		return "{\"grade\":\"ok\"}";
 	}
+	
+	@RequestMapping("/listById")
+	public ResponseEntity<List<Grade>> listById(Grade grade){
+		List<Grade> grades = gradeService.listById(grade);
+		return new ResponseEntity<List<Grade>>(grades, HttpStatus.OK);
+	}
+	
+	@RequestMapping("/editGrade")
+	public @ResponseBody String editGrade(Grade grade) {
+		gradeService.editGrade(grade);
+		return "{\"grade\":\"ok\"}";
+	}
+	
 }

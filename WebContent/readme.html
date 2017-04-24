@@ -50,5 +50,16 @@
 		发现可以使用隐藏域的方法获取动态的id值。attr("value");
 
 	(6)我再前台获取数据，没有传到后台。在没有写service操作时
+	
+	(7)A query was run and no Result Maps were found for the Mapped Statement 'com.member.mapper.GradeMapper.listByIdm'.  It's likely that neither a Result Type nor a Result Map was specified.
+		查看mapper的配置文件，发现遗漏了一个属性，resultType
+		所有的mybatis的所有查询都需要参数类型和结果类型。
+		
+	(8)add和edit使用一个模态框，点击确定按钮时如何判断执行那种操作
+		add和edit使用参数，根据参数判断执行那种操作。
+		
+	(9)页面有公共的头文件，本来是提取出来作为一个页面，包含进其他页面，但是没有方法改变其背景，因为每次刷新总会回到原始状态，所以放弃，改为静态固定的
+	
+	
 </body>
 </html>

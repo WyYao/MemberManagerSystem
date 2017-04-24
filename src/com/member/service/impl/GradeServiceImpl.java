@@ -40,5 +40,16 @@ public class GradeServiceImpl implements GradeService {
 		
 	}
 
+	@Override
+	public List<Grade> listById(Grade grade) {
+		return gradeMapper.listByIdm(grade);
+	}
+
+	@Override
+	public void editGrade(Grade grade) {
+		gradeMapper.editGradem(grade);
+		
+	}
+
 	
 }

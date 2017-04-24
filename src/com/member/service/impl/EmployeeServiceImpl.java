@@ -15,36 +15,29 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeMapper employeeMapper;
-	
-	
+
 	public EmployeeMapper getEmployeeMapper() {
 		return employeeMapper;
 	}
 
-
 	public void setEmployeeMapper(EmployeeMapper employeeMapper) {
 		this.employeeMapper = employeeMapper;
 	}
-
 
 	@Override
 	public List<Employee> ListAll() {
 		return employeeMapper.listAllm();
 	}
 
-
 	@Override
 	public void addEmployee(Employee employee) {
 		employeeMapper.addEmployeem(employee);
-		
-	}
 
+	}
 
 	@Override
 	public List<Employee> listByName(EmployeePO employeePO) {
 		return employeeMapper.listByNamem(employeePO);
 	}
 
-
-	
 }

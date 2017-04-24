@@ -17,4 +17,18 @@
 	<delete id="deleteGradem" parameterType="Grade">
 		delete from grade where grade_id = #{grade_id}
 	</delete>
+	
+	<select id="listByIdm" parameterType="Grade" resultType="Grade">
+		select * from grade
+		where grade_id = #{grade_id}
+	</select>
+	
+	<update id="editGradem" parameterType="Grade">
+		update grade 
+		<trim prefix="set" suffixOverrides=",">
+			<if test="grade_name!=null">grade_name=#{grade_name},</if>
+			<if test="discount!=null">discount=#{discount},</if>
+		</trim>
+		where grade_id=#{grade_id}
+	</update>
 </mapper>  

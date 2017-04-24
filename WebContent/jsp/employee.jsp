@@ -12,8 +12,8 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 导航 -->
-	<nav class="navbar navbar-default">
+<!-- 导航 -->
+<nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand">员工资料</a>
@@ -22,9 +22,10 @@
 			<li class="active"><a href="employee.jsp">员工信息</a></li>
 			<li><a href="member.jsp">客户信息</a></li>
 			<li><a href="goods.jsp">商品信息</a></li>
+			<li><a href="grade.jsp">会员等级信息</a></li>
 		</ul>
 	</div>
-	</nav>
+</nav> 
 
 	<!-- 新增员工信息模态框 -->
 	<div class="modal" id="employeeModal">

@@ -3,75 +3,76 @@ package com.member.model;
 import java.util.Date;
 
 public class Member {
+	private int member_id;
+	private String member_name;
+	private String member_sex;
+	private String member_tell;
+	private String member_add;
+	private int grade_id;
+	private int integral;
 
-	private int emp_id;
-	private String emp_pw;
-	private String emp_name;
-	private String emp_sex;
-	private Date emp_birthday;
-	private String emp_tell;
-	private String emp_add;
-
-	public int getEmp_id() {
-		return emp_id;
+	public int getMember_id() {
+		return member_id;
 	}
 
-	public void setEmp_id(int emp_id) {
-		this.emp_id = emp_id;
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
 	}
 
-	public String getEmp_pw() {
-		return emp_pw;
+	public String getMember_name() {
+		return member_name;
 	}
 
-	public void setEmp_pw(String emp_pw) {
-		this.emp_pw = emp_pw;
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
 
-	public String getEmp_name() {
-		return emp_name;
+	public String getMember_sex() {
+		return member_sex;
 	}
 
-	public void setEmp_name(String emp_name) {
-		this.emp_name = emp_name;
+	public void setMember_sex(String member_sex) {
+		this.member_sex = member_sex;
 	}
 
-	public String getEmp_sex() {
-		return emp_sex;
+	public String getMember_tell() {
+		return member_tell;
 	}
 
-	public void setEmp_sex(String emp_sex) {
-		this.emp_sex = emp_sex;
+	public void setMember_tell(String member_tell) {
+		this.member_tell = member_tell;
 	}
 
-	public Date getEmp_birthday() {
-		return emp_birthday;
+	
+	public String getMember_add() {
+		return member_add;
 	}
 
-	public void setEmp_birthday(Date emp_birthday) {
-		this.emp_birthday = emp_birthday;
+	public void setMember_add(String member_add) {
+		this.member_add = member_add;
 	}
 
-	public String getEmp_tell() {
-		return emp_tell;
+	public int getGrade_id() {
+		return grade_id;
 	}
 
-	public void setEmp_tell(String emp_tell) {
-		this.emp_tell = emp_tell;
+	public void setGrade_id(int grade_id) {
+		this.grade_id = grade_id;
 	}
 
-	public String getEmp_add() {
-		return emp_add;
+	public int getIntegral() {
+		return integral;
 	}
 
-	public void setEmp_add(String emp_add) {
-		this.emp_add = emp_add;
+	public void setIntegral(int integral) {
+		this.integral = integral;
 	}
 
 	@Override
 	public String toString() {
-		return "EmployeeModel [emp_id=" + emp_id + ", emp_pw=" + emp_pw + ", emp_name=" + emp_name + ", emp_sex="
-				+ emp_sex + ", emp_birthday=" + emp_birthday + ", emp_tell=" + emp_tell + ", emp_add=" + emp_add + "]";
+		return "Member [member_id=" + member_id + ", member_name=" + member_name + ", member_sex=" + member_sex
+				+ ", member_tell=" + member_tell + ", member_add=" + member_add + ", grade_id=" + grade_id
+				+ ", integral=" + integral + "]";
 	}
 
 }

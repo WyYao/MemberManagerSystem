@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.member.mapper.MemberMapper">
+
+	<select id="listAllm" resultType="Member">
+		select * from member
+	</select>
+	
+	<insert id="addMemberm" parameterType="Member">
+		insert into 
+		member(member_name,member_sex,member_tell,member_add)
+		values(#{member_name},#{member_sex},#{member_tell},#{member_add})
+	</insert>
+	
+	<select id="listByTellm" parameterType="Member" resultType="Member">
+		select * from member
+		where member_tell = #{member_tell}
+	</select>
+	
+	<delete id="deleteMemberm">
+		delete from member where member_id=#{member_id}
+	</delete>
+	
+	<select id="listByIdm" parameterType="Member" resultType="Member">
+		select * from member where member_id=#{member_id}
+	</select>
+	<update id="editGradem" parameterType="Grade">
+		update member 
+		<trim prefix="set" suffixOverrides=",">
+			<if test="member_name!=null">member_name=#{member_name},</if>
+			<if test="member_sex!=null">member_sex=#{member_sex},</if>
+			<if test="member_tell!=null">member_tell=#{member_tell},</if>
+			<if test="memberr_add!=null">memberr_add=#{memberr_add},</if>
+			<if test="grade_id!=null">grade_id=#{grade_id},</if>
+			<if test="integral!=null">integral=#{integral},</if>
+		</trim>
+		where member_id=#{member_id}
+	</update>
+</mapper>  

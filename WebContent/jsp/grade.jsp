@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
 <%-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,20 +13,20 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- 导航 -->
-	<!-- 	<nav class="navbar navbar-default">
+<!-- 导航 -->
+<nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand">员工资料</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="employee.jsp">员工信息</a></li>
+			<li><a href="employee.jsp">员工信息</a></li>
 			<li><a href="member.jsp">客户信息</a></li>
 			<li><a href="goods.jsp">商品信息</a></li>
+			<li class="active"><a href="grade.jsp">会员等级信息</a></li>
 		</ul>
 	</div>
-	</nav> -->
-
+</nav> 
 	<!-- 新增等级信息模态框 -->
 	<div class="modal" id="gradeModal">
 		<div class="modal-dialog">
@@ -81,6 +82,41 @@
 			</div>
 		</div>
 	</div>
+
+	<!--修改等级模态框  -->
+	<div class="modal" id="editGradeModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- 可关闭 -->
+					<button class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+					<h4 class="modal-title">新增等级信息</h4>
+				</div>
+				<div class="modal-body">
+
+					<div class="input-group-lg">
+						<span class="input-group-addon"> 等级编号 </span> <input type="text"
+							id="grade_ide" class="form-control" readonly="true">
+					</div>
+					<div class="input-group-lg">
+						<span class="input-group-addon"> 等级名称 </span> <input type="text"
+							id="grade_namee" class="form-control">
+					</div>
+					<div class="input-group-lg">
+						<span class="input-group-addon"> 会员折扣率 </span> <input type="text"
+							id="discounte" class="form-control">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-defaule" data-dismiss="modal">取消</button>
+					<button class="btn btn-primary" id="DeitGrade">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- 新增按钮 -->
 	<button class="btn btn-primary" data-toggle="modal"
 		data-target="#gradeModal" data-backdrop="static">点击新增</button>
@@ -99,7 +135,7 @@
 
 		</tbody>
 	</table>
-	
+	</div>
 	<script type="text/javascript">
 		//查询全部员工信息，并且动态生成表格
 	 	function listGrades() {
@@ -129,8 +165,7 @@
 								操作 <span class="caret"></span>
 							</button>	
 								<ul class="dropdown-menu" role="menu">
-									<input type="text" id="delete" class="hidden" value=`+element.grade_id+`>
-									<li><a id="del">修改</a></li>
+									<li><a data-id=`+element.grade_id+` onclick="edit(this)" style="cursor:pointer" data-target="#editGradeModal" data-toggle="modal" class="operate-account-edit">修改</a></li>
 									<li><a data-id=`+element.grade_id+` onclick="del(this)" style="cursor:pointer" data-target="#deleteGradeModal" data-toggle="modal" class="operate-account-edit">删除</a></li>
 								</ul>
 							</div>
@@ -209,20 +244,18 @@
 
 		//删除等级
 		function del(ie){
-			var ie = $(ie).attr('data-id');
+			
 			$("#deleteGrade").click(function(){
 				var param = {
-					grade_id : ie
+					grade_id : $(ie).attr('data-id')
 				};
-				alert(ie);
 				$.ajax({
 					type : "post",
 					url : "/MemberManagerSystem/grade/deleteGrade.shtml",
 					data : param,
 					dataType : "json",
 					success : function(data){
-						alert("删除成功");
-						ie = "";
+						alert("删除成功")
 						$("#deleteGradeModal").modal("hide");
 						listGrades();
 					},
@@ -234,6 +267,48 @@
 				
 			});
 		}
+		//修改等级信息
+		function edit(ie){
+			var param = {
+				grade_id : $(ie).attr('data-id')
+			};
+			$.ajax({
+				type : "post",
+				url : "/MemberManagerSystem/grade/listById.shtml",
+				data : param,
+				dataType : "json",
+				success : function(result) {
+					$.each(result,function(index, element) {
+						$("#grade_ide").val(element.grade_id),
+						$("#grade_namee").val(element.grade_name),
+						$("#discounte").val(element.discount)
+					});
+				}
+			})
+		}
+		$("#DeitGrade").click(function(){
+			param = {
+				grade_id : $("#grade_ide").val(),
+				grade_name : $("#grade_namee").val(),
+				discount : $("#discounte").val()
+			};
+			$.ajax({
+				type : "post",
+				url : "/MemberManagerSystem/grade/editGrade.shtml",
+				data : param,
+				dataType : "json",
+				success : function(result){
+					alert("修改成功");
+					$("#editGradeModal").modal("hide");
+					listGrades();
+				},
+				erreo : function(result){
+					alert("修改失败");
+				}
+				
+			});
+			
+		});
 	</script>
 
 </body>

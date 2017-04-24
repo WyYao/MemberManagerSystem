@@ -14,12 +14,14 @@
 		<typeAlias alias="Employee" type="com.member.model.Employee"/>
 		<typeAlias alias="EmployeePO" type="com.member.po.EmployeePO"/>
 	 	<typeAlias alias="Grade" type="com.member.model.Grade"/>
+	 	<typeAlias alias="Member" type="com.member.model.Member"/>
 	</typeAliases>
 	
 	<mappers>
 		<!-- 使用xml映射配置方式,映射mapper(.java-.xml 方法的对应) -->
 		<mapper class="com.member.mapper.EmployeeMapper"/>
 		<mapper class="com.member.mapper.GradeMapper"/>
+		<mapper class="com.member.mapper.MemberMapper"/>
 		<!-- <mapper class="com.interview.mapper.ReservationMapper"/> -->
 		<!-- <mapper resource="com/yao/model/User.xml"/> -->
 	</mappers>
