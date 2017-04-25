@@ -12,9 +12,13 @@
 	<!-- 别名 -->
 	<typeAliases>
 		<typeAlias alias="Employee" type="com.member.model.Employee"/>
-		<typeAlias alias="EmployeePO" type="com.member.po.EmployeePO"/>
+		<typeAlias alias="EmployeeVO" type="com.member.vo.EmployeeVO"/>
 	 	<typeAlias alias="Grade" type="com.member.model.Grade"/>
 	 	<typeAlias alias="Member" type="com.member.model.Member"/>
+	 	<typeAlias alias="MemberVO" type="com.member.vo.MemberVO"/>
+	 	<typeAlias alias="Kinds" type="com.member.model.Kinds"/>
+	 	<typeAlias alias="Goods" type="com.member.model.Goods"/>
+	 	<typeAlias alias="GoodsVO" type="com.member.vo.GoodsVO"/>
 	</typeAliases>
 	
 	<mappers>
@@ -22,6 +26,8 @@
 		<mapper class="com.member.mapper.EmployeeMapper"/>
 		<mapper class="com.member.mapper.GradeMapper"/>
 		<mapper class="com.member.mapper.MemberMapper"/>
+		<mapper class="com.member.mapper.KindsMapper"/>
+		<mapper class="com.member.mapper.GoodsMapper"/>
 		<!-- <mapper class="com.interview.mapper.ReservationMapper"/> -->
 		<!-- <mapper resource="com/yao/model/User.xml"/> -->
 	</mappers>

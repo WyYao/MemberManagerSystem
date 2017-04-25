@@ -1,7 +1,5 @@
 package com.member.model;
 
-import java.util.Date;
-
 public class Employee {
 
 	private int emp_id;

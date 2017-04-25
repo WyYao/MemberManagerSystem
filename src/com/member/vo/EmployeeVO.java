@@ -1,6 +1,6 @@
-package com.member.po;
+package com.member.vo;
 
-public class MemberPO {
+public class EmployeeVO {
 	private int emp_id;
 	private String emp_pw;
 	private String emp_name;

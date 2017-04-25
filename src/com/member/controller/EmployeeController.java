@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.member.model.Employee;
-import com.member.po.EmployeePO;
 import com.member.service.EmployeeService;
+import com.member.vo.EmployeeVO;
 
 @Controller
 @RequestMapping("/employee")
@@ -33,8 +33,8 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping("/listByName")
-	public ResponseEntity<List<Employee>> listByName(EmployeePO employeePO){
-		List<Employee> employees = employeeService.listByName(employeePO);
+	public ResponseEntity<List<Employee>> listByName(Employee employee){
+		List<Employee> employees = employeeService.listByName(employee);
 		ResponseEntity<List<Employee>> result = new ResponseEntity<List<Employee>>(employees,HttpStatus.OK);
 		if(result != null){
 			return result;

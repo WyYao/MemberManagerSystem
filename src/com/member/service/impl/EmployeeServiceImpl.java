@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.member.mapper.EmployeeMapper;
 import com.member.model.Employee;
-import com.member.po.EmployeePO;
 import com.member.service.EmployeeService;
+import com.member.vo.EmployeeVO;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -36,8 +36,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<Employee> listByName(EmployeePO employeePO) {
-		return employeeMapper.listByNamem(employeePO);
+	public List<Employee> listByName(Employee employee) {
+		return employeeMapper.listByNamem(employee);
 	}
 
 }

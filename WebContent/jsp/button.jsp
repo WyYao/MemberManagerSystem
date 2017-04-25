@@ -13,7 +13,7 @@
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!-- <td>
+	<!-- <td>
 	<div class="btn-group">
 		<button type="button" class="btn btn-primary dropdown-toggle"
 			data-toggle="dropdown">
@@ -37,8 +37,8 @@
 				</ul>
 		</div>
 	</td> -->
-	
-	
+
+	<!-- 	
 	<button class="btn btn-primary" data-toggle="modal"
 		data-target="#memberModal" data-backdrop="static">点击新增</button>
 	<div class="col-lg-4">
@@ -57,7 +57,42 @@
 				class="input-group-btn">
 				<button class="btn btn-default" type="button" id="employeeEachKey">查询</button>
 			</span>
+		</d -->
+
+	</div>
+	<!-- <script type="text/javascript">
+	
+	
+	`<td>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				操作 <span class="caret"></span>
+			</button>
+			<input id="input_id" type="text" class="hidden"	value=`+element.member_id+`>
+			<ul class="dropdown-menu" role="menu">
+				param = {
+					
+				}
+				<li><a data-id=`+element.member_id+` onclick="edit(this)"
+					style="cursor: pointer" data-target="#editMemberModal"
+					data-toggle="modal" class="operate-account-edit">修改
+				</a></li>
+				
+			</ul>
 		</div>
+	</td>`
+	
+</script> -->
+	<div>
+		<li class="dropdown" id="accountmenu"><a class="dropdown-toggle"
+			data-toggle="dropdown" href="#">Tutorials<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">PHP</a></li>
+				<li><a href="#">MySQL</a></li>
+				<li class="divider"></li>
+				<li><a href="#">JavaScript</a></li>
+				<li><a href="#">HTML5</a></li>
+			</ul></li>
 	</div>
 </body>
 </html>

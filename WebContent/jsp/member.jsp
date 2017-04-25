@@ -17,13 +17,14 @@
 	<nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand">员工资料</a>
+			<a class="navbar-brand">会员资料</a>
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="employee.jsp">员工信息</a></li>
 			<li class="active"><a href="member.jsp">会员信息</a></li>
 			<li><a href="goods.jsp">商品信息</a></li>
 			<li><a href="grade.jsp">会员等级信息</a></li>
+			<li><a href="kinds.jsp">商品种类信息</a></li>
 		</ul>
 	</div>
 	</nav>
@@ -100,7 +101,7 @@
 		</div>
 	</div>
 
-	<!--修改等级模态框  -->
+	<!--修改会员信息模态框  -->
 	<div class="modal" id="editMemberModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -116,6 +117,7 @@
 					<div class="input-group-sm">
 						<span class="input-group-addon"> 会员名称 </span> <input type="text"
 							id="member_namee" class="form-control">
+						<input type="text" value="1" id="member_ide" class="hidden" />
 					</div>
 					<div class="input-group-sm">
 						<span class="input-group-addon">选择性别</span> <select
@@ -134,12 +136,12 @@
 					</div>
 					<div class="input-group-sm">
 						<span class="input-group-addon"> 会员等级 </span> <input type="text"
-							id="grade_namee" class="form-control">
+							id="grade_namee" class="form-control" readonly="true">
 							<input type="text" id="grade_ide" class="hidden" >
 					</div>
 					<div class="input-group-sm">
 						<span class="input-group-addon"> 会员积分 </span> <input type="text"
-							id="integrale" class="form-control">
+							id="integrale" class="form-control" readonly="true">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -195,13 +197,12 @@
 						resultHtml += "<td>"+ element.member_sex + "</td>";
 						resultHtml += "<td>"+ element.member_tell+ "</td>";
 						resultHtml += "<td>"+ element.member_add + "</td>";
-						resultHtml += "<td>"+ element.grade_id + "</td>";
+						resultHtml += "<td>"+ element.grade_name + "</td>";
 						resultHtml += "<td>"+ element.integral+ "</td>";
 						
 						resultHtml += ` <td>
 							<div class="btn-group">
-							<button type="button" class="btn btn-primary dropdown-toggle" 
-								data-toggle="dropdown">
+							<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 								操作 <span class="caret"></span>
 							</button>	
 							<input id="input_id" type="text" class="hidden" value=`+element.member_id+`>
@@ -308,7 +309,7 @@
 							resultHtml += "<td>"+ element.member_sex + "</td>";
 							resultHtml += "<td>"+ element.member_tell+ "</td>";
 							resultHtml += "<td>"+ element.member_add + "</td>";
-							resultHtml += "<td>"+ element.grade_id + "</td>";
+							resultHtml += "<td>"+ element.grade_name + "</td>";
 							resultHtml += "<td>"+ element.integral+ "</td>";
 							
 							resultHtml += ` <td>
@@ -344,7 +345,7 @@
 					data : param,
 					dataType : "json",
 					success : function(data){
-						alert("删除成功")
+						/* alert("删除成功"); */
 						$("#deleteMemberModal").modal("hide");
 						listMembers();
 					},
@@ -358,20 +359,22 @@
 		}
 		//修改会员信息
 		function edit(ie){
-			var param = {
+			var params = {
 				member_id : $(ie).attr('data-id')
 			};
 			$.ajax({
 				type : "post",
 				url : "/MemberManagerSystem/member/listById.shtml",
-				data : param,
+				data : params,
 				dataType : "json",
 				success : function(result) {
 					$.each(result,function(index, element) {
+						$("#member_ide").val(element.member_id),
 						$("#member_namee").val(element.member_name),
 						$("#member_sexe").val(element.member_sex),
 						$("#member_telle").val(element.member_tell),
 						$("#member_adde").val(element.member_add),
+						$("#grade_namee").val(element.grade_name),
 						$("#grade_ide").val(element.grade_id),
 						$("#integrale").val(element.integral)
 					});
@@ -379,15 +382,12 @@
 			})
 		}
 		$("#DeitMember").click(function(){
-			alert("ol");
-			param = {
-				member_id : $("#input_id").val(),
+			var param = {
+				member_id : $("#member_ide").val(),
 				member_name : $("#member_namee").val(),
 				member_sex : $("#member_sexe").val(),
 				member_tell : $("#member_telle").val(),
 				member_add : $("#member_adde").val(),
-				grade_id : $("#grade_ide").val(),
-				integral : $("#integrale").val()
 			};
 			$.ajax({
 				type : "post",
@@ -402,9 +402,7 @@
 				erreo : function(result){
 					alert("修改失败");
 				}
-				
 			});
-			
 		});
 	</script>
 

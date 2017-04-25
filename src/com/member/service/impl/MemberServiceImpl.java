@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.member.mapper.MemberMapper;
 import com.member.model.Member;
 import com.member.service.MemberService;
+import com.member.vo.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -24,7 +25,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<Member> listAll() {
+	public List<MemberVO> listAll() {
 		return memberMapper.listAllm();
 	}
 
@@ -44,15 +45,14 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<Member> listById(Member member) {
+	public List<MemberVO> listById(Member member) {
 		return memberMapper.listByIdm(member);
 	}
 
 	@Override
 	public void editMember(Member member) {
 		memberMapper.editMemberm(member);
-		
+
 	}
 
-	
 }

@@ -16,7 +16,7 @@
 		values(#{emp_id},#{emp_pw},#{emp_name},#{emp_sex},#{emp_tell},#{emp_add})
 	</insert>
 
-	<select id="listByNamem" parameterType="EmployeePO" resultType="Employee">
+	<select id="listByNamem" parameterType="Employee" resultType="Employee">
 		select * from employee
 		<where>
 			<if test="emp_name!=null"> and emp_name like concat('%',#{emp_name},'%')</if>

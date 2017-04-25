@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.member.model.Member;
 import com.member.service.MemberService;
+import com.member.vo.MemberVO;
 
 @Controller
 @RequestMapping("/member")
@@ -28,9 +29,9 @@ public class MemberController {
 	}
 
 	@RequestMapping("/listAll")
-	public ResponseEntity<List<Member>> listAll(){
-		List<Member> members = memberService.listAll();
-		return new ResponseEntity<List<Member>>(members,HttpStatus.OK);
+	public ResponseEntity<List<MemberVO>> listAll(){
+		List<MemberVO> members = memberService.listAll();
+		return new ResponseEntity<List<MemberVO>>(members,HttpStatus.OK);
 	}
 	
 	@RequestMapping("/addMember")
@@ -57,9 +58,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/listById")
-	public ResponseEntity<List<Member>> listById(Member member){
-		List<Member> members = memberService.listById(member);
-		return new ResponseEntity<List<Member>>(members,HttpStatus.OK);
+	public ResponseEntity<List<MemberVO>> listById(Member member){
+		List<MemberVO> members = memberService.listById(member);
+		return new ResponseEntity<List<MemberVO>>(members,HttpStatus.OK);
 	}
 	
 	@RequestMapping("/editMember")
