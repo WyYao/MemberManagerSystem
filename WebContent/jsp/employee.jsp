@@ -20,9 +20,9 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="employee.jsp">员工信息</a></li>
-			<li><a href="member.jsp">客户信息</a></li>
-			<li><a href="goods.jsp">商品信息</a></li>
+			<li><a href="member.jsp">会员信息</a></li>
 			<li><a href="grade.jsp">会员等级信息</a></li>
+			<li><a href="goods.jsp">商品信息</a></li>
 			<li><a href="kinds.jsp">商品种类信息</a></li>
 		</ul>
 	</div>

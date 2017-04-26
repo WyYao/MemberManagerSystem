@@ -17,15 +17,8 @@
 	<nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand">会员资料</a>
+			<a class="navbar-brand">首页</a>
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="employee.jsp">员工信息</a></li>
-			<li class="active"><a href="member.jsp">会员信息</a></li>
-			<li><a href="grade.jsp">会员等级信息</a></li>
-			<li><a href="goods.jsp">商品信息</a></li>
-			<li><a href="kinds.jsp">商品种类信息</a></li>
-		</ul>
 	</div>
 	</nav>
 	<!-- 新增会员信息模态框 -->
@@ -78,7 +71,7 @@
 		</div>
 	</div>
 
-	<!-- 删除等级模态框  -->
+	<!-- 删除会员模态框  -->
 	<div class="modal" id="deleteMemberModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -185,7 +178,7 @@
 	</div>
 	<script type="text/javascript">
 		//查询全部员工信息，并且动态生成表格
-	 	function listMembers() {
+	 	/* function listMembers() {
 			$.ajax({
 				type : "post",
 				url : "/MemberManagerSystem/member/listAll.shtml",
@@ -222,11 +215,11 @@
 				}
 			
 			});
-		} 
+		}  */
 
 		//初始化页面
 		$("document").ready(function() {
-			listMembers();
+			/* listMembers(); */
 		});
 
 		//清除新增个人信息的模态框内容

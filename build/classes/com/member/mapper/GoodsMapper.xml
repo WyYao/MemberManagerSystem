@@ -7,4 +7,10 @@
 		select * from goods a join kinds b on a.kinds_id=b.kinds_id 
 	</select>
 
+	<insert id="addGoodsm" parameterType="Goods">
+		insert into 
+		goods(goods_name,kinds_id,num,purch_price,sell_price) 
+		values(#{goods_name},#{kinds_id},#{num},#{purch_price},#{sell_price})
+	</insert>
+	
 </mapper>

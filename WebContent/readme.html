@@ -67,7 +67,17 @@
 	(11)修改总是获取第一个会员主键，也总是修改第一个信息。
 		在修改模态框中设置一个隐藏域，存储会员主键，修改时，获取其主键
 	
-	
+	(12)有一个页面转到另外一个页面
+		可以在href路径中添加参数 href="detail.jsp?id=1"
 		
+	(13)获取URL上的参数
+		var url = window.location.search;
+		var id = url.split("=", 2)[1];
+		
+		window.location.href　整个URl字符串(在浏览器中就是完整的地址栏)
+		window.location.search　查询(参数)部分。除了给动态语言赋值以外，我们同样可以给静态页面,并使用javascript来获得相信应的参数值 　返回值：?id=209
+		
+	(13)	
+	
 </body>
 </html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.member.mapper.DetailMapper">
+
+	<select id="listByIdm" resultType="DetailVO">
+		<!-- select id,date,goods_name,num,sell_price,kinds_name,kinds_idfrom detail,member,goods
+		where detail.goods_id=goods.goods_id and goods.kinds_id=kinds.kinds_id -->
+		select * from detail,member,goods
+		where detail.member_id=#{member_id} and goods.goods_id=detail.goods_id
+		GROUP BY id;
+	</select>
+	
+	<!-- <insert id="addGradem" parameterType="Grade">
+		insert into 
+		grade(grade_id,grade_name,discount)
+		values(#{grade_id},#{grade_name},#{discount})
+	</insert>
+	
+	<delete id="deleteGradem" parameterType="Grade">
+		delete from grade where grade_id = #{grade_id}
+	</delete>
+	
+	<select id="listByIdm" parameterType="Grade" resultType="Grade">
+		select * from grade
+		where grade_id = #{grade_id}
+	</select>
+	
+	<update id="editGradem" parameterType="Grade">
+		update grade 
+		<trim prefix="set" suffixOverrides=",">
+			<if test="grade_name!=null">grade_name=#{grade_name},</if>
+			<if test="discount!=null">discount=#{discount},</if>
+		</trim>
+		where grade_id=#{grade_id}
+	</update> -->
+
+</mapper>  

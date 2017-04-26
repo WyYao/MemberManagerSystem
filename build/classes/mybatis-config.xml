@@ -19,6 +19,8 @@
 	 	<typeAlias alias="Kinds" type="com.member.model.Kinds"/>
 	 	<typeAlias alias="Goods" type="com.member.model.Goods"/>
 	 	<typeAlias alias="GoodsVO" type="com.member.vo.GoodsVO"/>
+	 	<typeAlias alias="Detail" type="com.member.model.Detail"/>
+	 	<typeAlias alias="DetailVO" type="com.member.vo.DetailVO"/>
 	</typeAliases>
 	
 	<mappers>
@@ -28,6 +30,8 @@
 		<mapper class="com.member.mapper.MemberMapper"/>
 		<mapper class="com.member.mapper.KindsMapper"/>
 		<mapper class="com.member.mapper.GoodsMapper"/>
+		<mapper class="com.member.mapper.DetailMapper"/>
+		
 		<!-- <mapper class="com.interview.mapper.ReservationMapper"/> -->
 		<!-- <mapper resource="com/yao/model/User.xml"/> -->
 	</mappers>

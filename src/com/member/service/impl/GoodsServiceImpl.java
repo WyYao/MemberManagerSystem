@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.member.mapper.GoodsMapper;
+import com.member.model.Goods;
 import com.member.service.GoodsService;
 import com.member.vo.GoodsVO;
 
@@ -26,6 +27,11 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public List<GoodsVO> listAll() {
 		return goodsMapper.listAllm();
+	}
+
+	@Override
+	public void addGoods(Goods goods) {
+		goodsMapper.addGoodsm(goods);
 	}
 
 }
