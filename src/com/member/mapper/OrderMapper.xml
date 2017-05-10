@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.member.mapper.OrderMapper">
+
+	<select id="listByMemberIdm" resultType="OrderVO">
+		SELECT * from `order`
+		WHERE member_id=#{member_id};
+	</select>
+
+	<select id="listByOrderIdm" resultType="DetailVO">
+		select
+		b.goods_name,a.detail_num,a.detail_price from detail a,goods b
+		WHERE a.goods_id = b.goods_id and a.order_id=#{order_id};
+	</select>  
+
+</mapper>

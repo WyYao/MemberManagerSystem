@@ -235,7 +235,6 @@
 							resultHtml += "<td>"+ element.emp_sex+ "</td>";
 							resultHtml += "<td>"+ element.emp_tell+ "</td>";
 							resultHtml += "<td>"+ element.emp_add+ "</td>";
-							resultHtml += "<td><button id="+element.eid+" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#reservation\" data-backdrop=\"static\" onclick=\"addR(this);\">新增面试</button></td>";
 							resultHtml += "</tr>";
 						});
 						$("table").children("tbody").html(resultHtml);

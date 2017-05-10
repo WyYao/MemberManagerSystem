@@ -115,8 +115,8 @@
 
 					<div class="input-group-sm">
 						<span class="input-group-addon"> 会员名称 </span> <input type="text"
-							id="member_namee" class="form-control">
-						<input type="text" value="1" id="member_ide" class="hidden" />
+							id="member_namee" class="form-control"> <input
+							type="text" value="1" id="member_ide" class="hidden" />
 					</div>
 					<div class="input-group-sm">
 						<span class="input-group-addon">选择性别</span> <select
@@ -135,8 +135,8 @@
 					</div>
 					<div class="input-group-sm">
 						<span class="input-group-addon"> 会员等级 </span> <input type="text"
-							id="grade_namee" class="form-control" readonly="true">
-							<input type="text" id="grade_ide" class="hidden" >
+							id="grade_namee" class="form-control" readonly="true"> <input
+							type="text" id="grade_ide" class="hidden">
 					</div>
 					<div class="input-group-sm">
 						<span class="input-group-addon"> 会员积分 </span> <input type="text"

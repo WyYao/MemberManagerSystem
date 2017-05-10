@@ -17,8 +17,7 @@
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand">会员购物详情</a>
-			<div class="navbar-brand" id="member">
-			</div>
+			<div class="navbar-brand" id="member"></div>
 			<!--获取到会员信息 -->
 		</div>
 	</div>
@@ -28,17 +27,14 @@
 			<tr>
 				<th>订单编号</th>
 				<th>日期</th>
-				<th>商品名称</th>
-				<th>数量</th>
-				<th>售价</th>
 				<th>总价</th>
+				<th>订单详情</th>
 			</tr>
 		</thead>
-		<tbody id="tbody">
-			<!-- 动态显示信息 -->
+		<tbody id="order">
+		
 		</tbody>
 	</table>
-
 
 	<script type="text/javascript">
 		//获取URL传来的参数
@@ -67,30 +63,63 @@
 			
 			$.ajax({
 				type : "post",
-				url : "/MemberManagerSystem/detail/listById.shtml",
+				url : "/MemberManagerSystem/order/listByMemberId.shtml",
 				data : param,
 				success : function(result) {
 					var resultHtml = " "; 
 					$.each(result, function(index, element) {
-						resultHtml +="<tr>"
-						resultHtml += "<th>"+ element.id +"</th>"
-						resultHtml += "<th>"+ element.date +"</td>"
-						resultHtml += "<th>"+ element.goods_name +"</th>";
-						/* resultHtml += "<th>"+ element.kinds_name +"</td>" */
-						resultHtml += "<th>"+ element.detail_num +"</th>";
-						resultHtml += "<th>"+ element.sell_price +"</td>"
-						resultHtml += "<th>"+ (element.sell_price * element.detail_num) +"</td>"
-						resultHtml +="</tr>"
+						resultHtml +="<tr>";
+						resultHtml += "<th>"+ element.order_id +"</th>";
+						resultHtml += "<th>"+ element.date +"</th>";
+						resultHtml += "<th>"+ element.total_price+"</td>";
+						resultHtml += ` <td>
+							<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#detailInfo" aria-expanded="false" 
+								aria-controls="detailInfos" o-id=`+element.order_id+` onclick="details(this)">详情 
+							</button>
+							</td> `;
+						resultHtml +="</tr>";
 					});
-					$("tbody").html(resultHtml); 
+					$("#order").html(resultHtml);
 				}
 			});
 		}
-
 		$("document").ready(function() {
 			mem();
 		})
 		
+		//订单详情
+		function details(oid){
+			var params = {
+				order_id : $(oid).attr('o-id')
+			};
+			$.ajax({
+				type : "post",
+				url : "/MemberManagerSystem/order/listByOrderId.shtml",
+				data : params,
+				dataType : "json",
+				success : function(result){
+					if(result!=null){
+						var resultHtml = "";
+						/* resultHtml +="<tr>";
+						resultHtml += "<td>"+ 商品名称 +"</td>";
+						resultHtml += "<td>"+ 单价 +"</td>";
+						resultHtml += "<td>"+ 数量 +"</td>";
+						resultHtml += "<td>"+ 金额 +"</td>";
+						resultHtml +="</tr>"; */
+						$.each(result,function(index,element){
+							resultHtml +="<tr>";
+							resultHtml += "<td>"+ element.good_name+"</td>";
+							resultHtml += "<td>"+ element.detail_price +"</td>";
+							resultHtml += "<td>"+ element.detail_num+"</td>";
+							resultHtml += "<td>"+ element.detail_price*element.detail_num+"</td>";
+							resultHtml +="</tr>";
+						});
+						$("tbody").html(resultHtml);
+					}
+					
+				}
+			})
+		}
 		
 	</script>
 

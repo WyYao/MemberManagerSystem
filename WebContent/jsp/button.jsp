@@ -83,7 +83,7 @@
 	</td>`
 	
 </script> -->
-	<div>
+	<!-- 	<div>
 		<li class="dropdown" id="accountmenu"><a class="dropdown-toggle"
 			data-toggle="dropdown" href="#">Tutorials<b class="caret"></b></a>
 			<ul class="dropdown-menu">
@@ -93,6 +93,15 @@
 				<li><a href="#">JavaScript</a></li>
 				<li><a href="#">HTML5</a></li>
 			</ul></li>
+	</div> -->
+	<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false"
+		aria-controls="collapseExample"> Link with href </a>
+	<button class="btn btn-primary" type="button" data-toggle="collapse"data-target="#collapseExample" aria-expanded="false"
+		aria-controls="collapseExample">Button with data-target
+	</button>
+	<div class="collapse" id="collapseExample">
+		<div class="well">...</div>
 	</div>
+
 </body>
 </html>
